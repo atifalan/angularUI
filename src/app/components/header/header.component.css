@@ -1,0 +1,32 @@
+.header {
+  background-image: url("/assets/header/banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+}
+
+.my-dropdown {
+  background-image: url("/assets/header/pitching.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 30vh;
+  height: 80px;
+}
+
+.my-dropdown2 {
+  background-image: url("/assets/header/hitting.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 30vh;
+  height: 80px;
+}
+
+.dropdown-toggle:empty::after {
+  margin-left: 0;
+  display: none;
+}
+
+a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}

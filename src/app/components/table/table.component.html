@@ -1,0 +1,21 @@
+<div>
+  <table mdbTable mdbTableScroll scrollY="true" maxHeight="100" bordered="true" *ngIf="arrPlayers">
+    <tr>
+      <th>Pitcher</th>
+      <th>Position</th>
+      <th>Bat/Throw</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Age</th>
+    </tr>
+
+    <tr *ngFor="let player of arrPlayers">
+      <td>{{player.pitcher}}</td>
+      <td>{{player.position}}</td>
+      <td>{{player.bat_throw}}</td>
+      <td>{{player.height}}</td>
+      <td>{{player.weight}}</td>
+      <td>{{player.age}}</td>
+    </tr>
+  </table>
+</div>

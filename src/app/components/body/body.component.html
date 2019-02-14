@@ -1,0 +1,179 @@
+<div class="m-container">
+  <div class="row">
+    <div class="col-3">
+      <button class="btn my-btn" type="button" (click)="addPlayer()"></button>
+    </div>
+
+    <div class="col-6">
+      <h2 style="font-family: 'Orbitron', sans-serif; color: #414249; letter-spacing: 1px" class="text-center text-uppercase">Roster</h2>
+      <hr>
+      <h2 style="font-family: 'Orbitron', sans-serif; color: #414249; letter-spacing: 3px; font-weight: bold" class="text-center text-uppercase">Pitching Leaders</h2>
+    </div>
+
+    <div class="col-3">
+      <button class="btn my-btn-grp" type="button"></button>
+    </div>
+  </div>
+  <div class="row3" style="margin-top: 6vh">
+    <div class="col-1" style="display: inline-block">
+
+    </div>
+    <div class="col-2" style="display: inline-block">
+      <h3>KYLE BEERY</h3>
+      <circle-progress
+        [percent]="64"
+        [radius]="75"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'#414249'"
+        [innerStrokeColor]="'#c9202f'"
+        [backgroundColor]="'#c4c4c4'"
+        [backgroundPadding]="-18"
+        [animation]="true"
+        [animationDuration]="300"
+        [showSubtitle]="false"
+        [showUnits]="false"
+        [titleFontSize]="50"
+      ></circle-progress>
+      <h4>RAPSCORE</h4>
+    </div>
+    <div class="col-2" style="display: inline-block">
+      <h3>DAVID ROBERTSON</h3>
+      <circle-progress
+        [percent]="74"
+        [radius]="75"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'#414249'"
+        [innerStrokeColor]="'#c9202f'"
+        [backgroundColor]="'#c4c4c4'"
+        [backgroundPadding]="-18"
+        [animation]="true"
+        [animationDuration]="300"
+        [showSubtitle]="false"
+        [showUnits]="false"
+        [titleFontSize]="50"
+      ></circle-progress>
+      <h4>MOVEMENT</h4>
+    </div>
+    <div class="col-2" style="display: inline-block">
+      <h3>BABY RUTH</h3>
+      <circle-progress
+        [percent]="63"
+        [radius]="75"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'#414249'"
+        [innerStrokeColor]="'#c9202f'"
+        [backgroundColor]="'#c4c4c4'"
+        [backgroundPadding]="-18"
+        [animation]="true"
+        [animationDuration]="300"
+        [showSubtitle]="false"
+        [showUnits]="false"
+        [titleFontSize]="50"
+      ></circle-progress>
+      <h4>RELEASE</h4>
+    </div>
+    <div class="col-2" style="display: inline-block">
+      <h3>CLAYTON KERSHAW</h3>
+      <circle-progress
+        [percent]="74"
+        [radius]="75"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'#414249'"
+        [innerStrokeColor]="'#c9202f'"
+        [backgroundColor]="'#c4c4c4'"
+        [backgroundPadding]="-18"
+        [animation]="true"
+        [animationDuration]="300"
+        [showSubtitle]="false"
+        [showUnits]="false"
+        [titleFontSize]="50"
+      ></circle-progress>
+      <h4>VELOCITY</h4>
+    </div>
+    <div class="col-2" style="display: inline-block">
+      <h3>SONNY GRAY</h3>
+      <circle-progress
+        [percent]="70"
+        [radius]="75"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'#414249'"
+        [innerStrokeColor]="'#c9202f'"
+        [backgroundColor]="'#c4c4c4'"
+        [backgroundPadding]="-18"
+        [animation]="true"
+        [animationDuration]="300"
+        [showSubtitle]="false"
+        [showUnits]="false"
+        [titleFontSize]="50"
+      ></circle-progress>
+      <h4>LOCATION</h4>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 8vh">
+    <div class="col-2">
+
+    </div>
+    <div class="col-4" style="padding-right: 0">
+      <div class="bio">
+        <a>BIO</a>
+      </div>
+    </div>
+    <div class="dropdown d-inline-block col-4" style="padding-left: 0">
+      <button class="btn dropdown-toggle pitch" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PITCH</button>
+      <div class="dropdown-menu menu2" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Fastball</a>
+        <a class="dropdown-item" href="#">Curveball</a>
+      </div>
+    </div>
+
+    <div class="col-2">
+
+    </div>
+  </div>
+  <div class="add-player" *ngIf="isAddPlayerOpen">
+
+  <div class="alert alert-primary" role="alert" *ngIf="showWarning">
+    Player added
+  </div>
+
+  <div class="row" style="margin-top: 50px">
+
+    <div class="col-4">
+
+    </div>
+
+    <div class="col-4">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <input type="text" formControlName="email" class="form-control email-inp" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+          <img class="mail-img" src="../../../assets/body/mail.png">
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div style="margin-top: -25px; margin-bottom: 20px" *ngIf="f.email.errors.required">Email is required</div>
+            <div style="margin-top: -25px; margin-bottom: 20px" *ngIf="f.email.errors.email">Email must be a valid email address</div>
+          </div>
+        </div>
+      </form>
+
+      <div class="dropdown d-inline-block pitcher-div" style="width: 100%">
+        <button class="btn btn-primary dropdown-toggle btn-block pitcher" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pitcher</button>
+        <img class="user-img" src="../../../assets/body/user.png">
+        <div class="dropdown-menu hitter" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Hitter</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <button class="btn my-btn-cross" type="button" (click)="onExit()"></button>
+    </div>
+
+  </div>
+
+  <button class="btn my-btn-add" type="button" (click)="onSubmit()"></button>
+  </div>
+</div>
